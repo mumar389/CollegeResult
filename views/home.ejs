@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smit Results</title>
+</head>
+<body>
+    <h1>Get Your 5th Sem Results-:</h1>
+    <form action="/get-result" method="post">
+       <h3>Enter Your Registration Number-: </h3> <input type="text" name="rno">
+       <button type="submit">Find</button>
+    </form>
+    <br>
+    <%if(message.length!=0){%>
+        <h1><%=message%></h1>
+
+        <%}%>
+    <%if(allResult.length!=0){%>
+      Hello  <b>Your Resgistration Number is-:<%=allResult.rno%></b>
+        <br>
+        <br>
+        <h1>Your GPA is-:<%=allResult.gpa%><h1>
+        <h3>Your Subject Wise Grade is-:</h3>
+        <%for(let i of allResult.marks){%>
+            <br>
+            <b>SubCode-:<%=i.name%></b>
+            <b>Int-:<%=i.internal%></b>
+            <b>Ext-:<%=i.external%></b>
+            <b>Total-:<%=i.total%></b>
+            <b>Grade-:<%=i.grade%></b>
+            <b>Credit-:<%=i.credit%></b>
+            <br>
+            <%}%>
+        <%}%>
+</body>
+</html>
